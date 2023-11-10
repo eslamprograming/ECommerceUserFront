@@ -1,0 +1,18 @@
+<table class="table-borderless" style="width: 100%;height: 100%; text-align: center;text-align: center;">
+  <tr>
+    <td rowspan="5"style="width: 40%;height: 80%;margin: 5%;padding: 5%;" ><img style="width: 100%;height: 80%;margin: 5%;padding: 5%;" src={{model.Value.productImageURL}} /></td>
+    <td>type : {{model.Value.productName}}</td>
+  </tr>
+  <tr>
+    <td>Amount : {{model.Value.stockQuantity}}</td>
+  </tr>
+  <tr>
+    <td>{{model.Value.description}}</td>
+  </tr>
+  <tr>
+      <td>price : {{model.Value.price}}$</td>
+    </tr>
+    <tr>
+    <td><button (click)="AddToCart(model.Value.productID)" class="btn-primary" style="text-align: center;width: 50%;height: 50px;">AddToCart</button></td>
+  </tr>
+</table>

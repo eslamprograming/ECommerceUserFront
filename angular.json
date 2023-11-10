@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ECommerceUserFrontend": {
+    "ECommercefrontUser": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ecommerce-user-frontend",
+            "outputPath": "dist/ecommercefront-user",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -51,7 +52,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -60,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ECommerceUserFrontend:build:production"
+              "browserTarget": "ECommercefrontUser:build:production"
             },
             "development": {
-              "browserTarget": "ECommerceUserFrontend:build:development"
+              "browserTarget": "ECommercefrontUser:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ECommerceUserFrontend:build"
+            "browserTarget": "ECommercefrontUser:build"
           }
         },
         "test": {
@@ -96,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "c2a4cb05-aa95-4328-a4f7-e19ba894be3a"
+    "analytics": "dcc87064-f27e-497e-8f8b-58453ae214f8"
   }
 }

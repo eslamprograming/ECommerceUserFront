@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SheardModule } from 'src/Models/Sheard/Sheard.module';
-import { AuthModule } from 'src/Models/Auth/Auth.module';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ProductModule } from 'src/product/product.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SheardModule } from 'src/Sheard/Sheard.module';
+import { TokenInterceptorService } from 'src/interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +14,15 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,SheardModule,AuthModule,FormsModule,RouterModule
+    AppRoutingModule,ProductModule,HttpClientModule,SheardModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
