@@ -7,6 +7,7 @@ import { ProductModule } from 'src/product/product.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SheardModule } from 'src/Sheard/Sheard.module';
 import { TokenInterceptorService } from 'src/interceptor/interceptor.service';
+import { CartModule } from 'src/Cart/Cart.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { TokenInterceptorService } from 'src/interceptor/interceptor.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ProductModule,HttpClientModule,SheardModule
+    AppRoutingModule,ProductModule,HttpClientModule,SheardModule,CartModule
   ],
   providers: [
     {

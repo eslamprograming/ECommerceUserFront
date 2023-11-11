@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartDetailsComponent } from 'src/Cart/Component/CartDetails/CartDetails.component';
 import { LoginComponent } from 'src/Sheard/Compontes/Login/Login.component';
 import { RegisterComponent } from 'src/Sheard/Compontes/Register/Register.component';
 import { SpinneerComponent } from 'src/Sheard/Compontes/Spinneer/Spinneer.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'ProductDetails',component:ProductDetialsComponent},
   {path:'Login',component:LoginComponent},
   {path:'Register',component:RegisterComponent},
+  {path:'CartDetails',component:CartDetailsComponent},
 
 ];
 
