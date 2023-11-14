@@ -21,10 +21,15 @@ export class LoginComponent implements OnInit {
   }
   login(){
     this.http.post<any>(`${environment.apiUrl}api/Auth/Login`,this.LoginFrm).subscribe(res=>{
-      
+      this.ResponseObj=res;
+      if(res.isAuthenticated===true){
       console.log(res);
-      localStorage.setItem("token",JSON.stringify(res.token));
+      localStorage.setItem("token",res.token);
       this.router.navigate(['']);
+      }
+      else{
+        alert(res.message);
+      }
     },
     error=>{alert("error");}
     )

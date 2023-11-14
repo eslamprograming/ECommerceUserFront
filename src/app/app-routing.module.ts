@@ -4,6 +4,7 @@ import { CartDetailsComponent } from 'src/Cart/Component/CartDetails/CartDetails
 import { LoginComponent } from 'src/Sheard/Compontes/Login/Login.component';
 import { RegisterComponent } from 'src/Sheard/Compontes/Register/Register.component';
 import { SpinneerComponent } from 'src/Sheard/Compontes/Spinneer/Spinneer.component';
+import { ProfileComponent } from 'src/Sheard/Compontes/profile/profile.component';
 import { HomeProductsComponent } from 'src/product/Components/HomeProducts/HomeProducts.component';
 import { ProductDetialsComponent } from 'src/product/Components/ProductDetials/ProductDetials.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'Login',component:LoginComponent},
   {path:'Register',component:RegisterComponent},
   {path:'CartDetails',component:CartDetailsComponent},
+  {path:'profile',component:ProfileComponent},
 
 ];
 

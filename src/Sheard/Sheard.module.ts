@@ -7,12 +7,13 @@ import { RegisterComponent } from './Compontes/Register/Register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './Compontes/profile/profile.component';
 
 @NgModule({
   imports: [
     CommonModule,FormsModule,HttpClientModule,RouterModule
   ],
-  declarations: [SheardComponent,SpinneerComponent,LoginComponent,RegisterComponent],
-  exports:[SpinneerComponent,LoginComponent,RegisterComponent]
+  declarations: [SheardComponent,SpinneerComponent,LoginComponent,RegisterComponent,ProfileComponent],
+  exports:[SpinneerComponent,LoginComponent,RegisterComponent,ProfileComponent]
 })
 export class SheardModule { }
