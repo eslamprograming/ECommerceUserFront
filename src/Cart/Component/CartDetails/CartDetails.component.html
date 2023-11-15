@@ -12,8 +12,7 @@
                   <!-- Set columns width -->
                   <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
                   <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
-                  <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
-                  <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
+                  
                   <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
                 </tr>
               </thead>
@@ -32,8 +31,7 @@
                     </div>
                   </td>
                   <td class="text-right font-weight-semibold align-middle p-4">${{item.price}}</td>
-                  <td class="align-middle p-4"><input type="text" name="quntity" class="form-control text-center"  value="2"></td>
-                  <td class="text-right font-weight-semibold align-middle p-4"></td>
+                  
                   <td class="text-center align-middle px-0"><a href="#" (click)="removeItemFromMyArray(item.productID)" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
                 </tr>
               </tbody>
@@ -49,7 +47,7 @@
             <div class="d-flex">
               
               <div class="float-right">
-                <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
+                <a href="/" type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</a>
                 <button type="button" class="btn btn-lg btn-primary mt-2" (click)="buy()">Buy Now</button>
               </div>
             </div>

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         alert(res.message);
       }
     },
-    error=>{alert("error");}
+    error=>{alert(error.message);}
     )
   }
 

@@ -8,12 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './Compontes/profile/profile.component';
+import { ChangePasswordComponent } from './Compontes/ChangePassword/ChangePassword.component';
 
 @NgModule({
   imports: [
     CommonModule,FormsModule,HttpClientModule,RouterModule
   ],
-  declarations: [SheardComponent,SpinneerComponent,LoginComponent,RegisterComponent,ProfileComponent],
-  exports:[SpinneerComponent,LoginComponent,RegisterComponent,ProfileComponent]
+  declarations: [SheardComponent,SpinneerComponent,LoginComponent,RegisterComponent,ProfileComponent,ChangePasswordComponent],
+  exports:[SpinneerComponent,LoginComponent,RegisterComponent,ProfileComponent,ChangePasswordComponent]
 })
 export class SheardModule { }

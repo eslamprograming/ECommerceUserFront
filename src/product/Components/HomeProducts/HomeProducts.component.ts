@@ -10,21 +10,31 @@ import { environment } from 'src/environments/environment.development';
   styleUrls: ['./HomeProducts.component.css']
 })
 export class HomeProductsComponent implements OnInit {
+Logout() {
+  localStorage.removeItem('token');
+  this.myArray=[];
+  this.saveArrayToLocalStorage();
+}
   myArray: number[] = [];
 Details(arg0: any) {
   localStorage.setItem('productDetails',arg0);
 this.router.navigate(['/ProductDetails']);
 }
 AddToCart(_t57: any) {
+  if(localStorage.getItem('token')===null){
+    this.router.navigate(['/Login']);
+  }
+  else{
   this.getArrayFromLocalStorage();
   this.addItemToMyArray(_t57);
   this.saveArrayToLocalStorage();
   alert("Added item");
+  }
 }
 
   ResponseCategory:Response=new Response;
   ResponseProduct:Response=new Response;
-  CategoryID:any=15;
+  CategoryID:number=0;
   constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit() {
@@ -32,7 +42,7 @@ AddToCart(_t57: any) {
     this.saveArrayToLocalStorage();
     }
     this.Category();
-    this.productCategory();
+    this.productCategoryAll();
   }
   getArrayFromLocalStorage(): void {
     // Retrieve the JSON string from localStorage
@@ -59,14 +69,31 @@ AddToCart(_t57: any) {
 
 
   productCategory(){
-    this.http.get<any>(`${environment.apiUrl}api/Product/GetAllProductCategory?CategoryID=${this.CategoryID}`).subscribe(
+    if(this.CategoryID==0){
+      this.productCategoryAll();
+    }else{
+      this.http.get<any>(`${environment.apiUrl}api/Product/GetAllProductCategory?CategoryID=${this.CategoryID}`).subscribe(
+        res=>{
+          this.ResponseProduct=res;
+          console.log(res);
+  
+        },
+        error=>{
+          alert(error.message);
+        }
+      )
+    }
+    
+  }
+  productCategoryAll(){
+    this.http.get<any>(`${environment.apiUrl}api/Product/GetAllProduct`).subscribe(
       res=>{
         this.ResponseProduct=res;
         console.log(res);
 
       },
       error=>{
-        alert("error");
+        alert(error.message);
       }
     )
   }
@@ -77,7 +104,7 @@ AddToCart(_t57: any) {
         console.log(res);
       },
       error=>{
-        alert("error");
+        alert(error.message);
       }
     )
   }

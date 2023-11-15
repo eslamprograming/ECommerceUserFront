@@ -19,11 +19,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   Register(){
-    alert(this.model.FirstName);
-    alert(this.model.LastName);
-    alert(this.model.Username);
-    alert(this.model.Email);
-    alert(this.model.Password);
+    
 
     this.http.post<any>(`${environment.apiUrl}api/Auth/Register`,this.model).subscribe(
       res=>{
@@ -32,7 +28,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['']);
       },
       error=>{
-        alert("error");
+        alert(error.message);
       }
     )
   }

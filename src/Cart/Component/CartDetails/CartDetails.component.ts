@@ -29,6 +29,9 @@ currentDateTime: Date;
     this.productCart();
   }
   productCart(){
+    if(localStorage.getItem('token')===null){
+      this.emptyArray();
+    }
     this.getArrayFromLocalStorage();
     for (let item of this.myArray) {
       this.http.get<any>(`${environment.apiUrl}api/Product/GetProduct?ProductID=${item}`).subscribe(
@@ -81,6 +84,14 @@ currentDateTime: Date;
       location.reload();
     }
   }
+  emptyArray(): void {
+  // Empty the array
+  this.myArray = [];
+
+  // Save the updated (empty) array to localStorage
+  this.saveArrayToLocalStorage();
+}
+
   orderVM:OrderVM = {
     orderDate:new Date(),  
     products: this.myArray, // Example product IDs
@@ -98,6 +109,8 @@ currentDateTime: Date;
       res => {
         console.log('Success:', res);
         alert('Order placed successfully.');
+        this.emptyArray();
+        location.reload();
       },
       error => {
         console.error('Error:', error);

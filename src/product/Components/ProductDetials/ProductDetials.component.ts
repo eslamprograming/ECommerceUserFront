@@ -14,10 +14,15 @@ export class ProductDetialsComponent implements OnInit {
   myArray:number[] = new Array();
 
 AddToCart(productID:any) {
+  if(localStorage.getItem('token')===null){
+    this.router.navigate(['/Login']);
+  }
+  else{
   this.getArrayFromLocalStorage();
   this.addItemToMyArray(productID);
   this.saveArrayToLocalStorage();
   alert("Added item");
+  }
 }
 getArrayFromLocalStorage(): void {
   // Retrieve the JSON string from localStorage
