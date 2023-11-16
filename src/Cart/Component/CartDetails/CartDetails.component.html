@@ -23,7 +23,7 @@
                     <div class="media align-items-center">
                       <img src={{item.productImageURL}} class="d-block ui-w-40 ui-bordered mr-4" alt="">
                       <div class="media-body">
-                        <a href="#" class="d-block text-dark">{{item.productName}}</a>
+                        <button  class="d-block text-dark hand">{{item.productName}}</button>
                         <small>
                           <p>{{item.description}}</p>
                         </small>
@@ -32,7 +32,7 @@
                   </td>
                   <td class="text-right font-weight-semibold align-middle p-4">${{item.price}}</td>
                   
-                  <td class="text-center align-middle px-0"><a href="#" (click)="removeItemFromMyArray(item.productID)" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                  <td class="text-center align-middle px-0"><button  (click)="removeItemFromMyArray(item.productID)" class="shop-tooltip close float-none text-danger hand" title="" data-original-title="Remove">×</button></td>
                 </tr>
               </tbody>
             </table>

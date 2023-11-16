@@ -29,9 +29,7 @@ currentDateTime: Date;
     this.productCart();
   }
   productCart(){
-    if(localStorage.getItem('token')===null){
-      this.emptyArray();
-    }
+    
     this.getArrayFromLocalStorage();
     for (let item of this.myArray) {
       this.http.get<any>(`${environment.apiUrl}api/Product/GetProduct?ProductID=${item}`).subscribe(
@@ -42,7 +40,7 @@ currentDateTime: Date;
           console.log(this.Responseobj);
         },
         error=>{
-          alert("error");
+          alert(error.message);
         }
         
       )
@@ -103,9 +101,8 @@ currentDateTime: Date;
     const p=localStorage.getItem('myArray');
     this.orderVM.orderDate=this.currentDateTime;
     this.orderVM.products=p ? JSON.parse(p) : [];
-
-  
-    this.http.post<any>(`https://localhost:7133/api/Order/AddOrder`, this.orderVM).subscribe(
+    
+    this.http.post<any>(`${environment.apiUrl}api/Order/AddOrder`, this.orderVM).subscribe(
       res => {
         console.log('Success:', res);
         alert('Order placed successfully.');

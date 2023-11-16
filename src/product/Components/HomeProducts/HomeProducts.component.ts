@@ -14,6 +14,7 @@ Logout() {
   localStorage.removeItem('token');
   this.myArray=[];
   this.saveArrayToLocalStorage();
+  this.router.navigate(['/Login']);
 }
   myArray: number[] = [];
 Details(arg0: any) {
@@ -21,13 +22,12 @@ Details(arg0: any) {
 this.router.navigate(['/ProductDetails']);
 }
 AddToCart(_t57: any) {
-  if(localStorage.getItem('token')===null){
+  if(localStorage.getItem('token')==null){
     this.router.navigate(['/Login']);
   }
   else{
   this.getArrayFromLocalStorage();
   this.addItemToMyArray(_t57);
-  this.saveArrayToLocalStorage();
   alert("Added item");
   }
 }
@@ -38,9 +38,9 @@ AddToCart(_t57: any) {
   constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem('myArray')===null){
+    this.getArrayFromLocalStorage();
     this.saveArrayToLocalStorage();
-    }
+    
     this.Category();
     this.productCategoryAll();
   }

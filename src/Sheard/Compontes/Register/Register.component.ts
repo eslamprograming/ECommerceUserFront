@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
 
   Responseobj:Response=new Response();
   model:RegisterVM=new RegisterVM();
+  myArray: number[] = [];
+
   constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit() {
@@ -25,12 +27,21 @@ export class RegisterComponent implements OnInit {
       res=>{
         console.log(res);
         localStorage.setItem("token",res.token);
+        this.myArray=[];
+        this.saveArrayToLocalStorage();
         this.router.navigate(['']);
       },
       error=>{
         alert(error.message);
       }
     )
+  }
+  saveArrayToLocalStorage(): void {
+    // Convert the array to a JSON string
+    const arrayString = JSON.stringify(this.myArray);
+  
+    // Save the JSON string to localStorage
+    localStorage.setItem('myArray', arrayString);
   }
 
 }

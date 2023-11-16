@@ -22,10 +22,10 @@ export class ProfileComponent implements OnInit {
       res=>{
         this.person=res;
         console.log(res);
+
       },
       error=>{
-        this.router.navigate(['/']);
-        alert(error.message);
+        this.router.navigate(['Login']);
       }
     )
   }
